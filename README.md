@@ -1,2 +1,5 @@
 # science
-Scientific projects
+Scientific projects created by AgenttiX
+
+GPLv3+ except where otherwise noted
+
