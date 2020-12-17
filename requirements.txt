@@ -1,0 +1,7 @@
+numpy
+scipy
+sympy
+pyqtgraph
+PyOpenGL
+PyOpenGL-accelerate
+PySide2
