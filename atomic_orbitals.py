@@ -188,7 +188,5 @@ class Main:
         return self.psi_radial(r, theta, phi)
 
 
-def main():
+if __name__ == "__main__":
     Main()
-
-main()
