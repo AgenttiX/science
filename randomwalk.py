@@ -21,7 +21,7 @@ import numpy as np
 import random
 
 import pyqtgraph as pg
-from pyqtgraph.Qt import QtGui
+from pyqtgraph.Qt import QtWidgets
 
 
 class Random:
@@ -30,8 +30,8 @@ class Random:
 
         self.__size = 5000
 
-        self.__xstart = self.__size / 2
-        self.__ystart = self.__size / 2
+        self.__xstart = self.__size // 2
+        self.__ystart = self.__size // 2
         self.__x = self.__xstart
         self.__y = self.__ystart
 
@@ -44,24 +44,24 @@ class Random:
 
         pg.setConfigOptions(antialias=True)
 
-        win = QtGui.QMainWindow()
+        win = QtWidgets.QMainWindow()
         win.resize(1200, 700)
         self.imv = pg.ImageView()
         win.setCentralWidget(self.imv)
         win.setWindowTitle("Particle path")
 
         win2 = pg.GraphicsWindow(title="Particle distance")
-        plot = win2.addPlot(y=self.__dist)
+        win2.addPlot(y=self.__dist)
 
         win.show()
 
         self.imv.setImage(self.__mat)
 
-        app.exec_()
+        app.exec()
 
     def move(self):
         for i in range(0, self.__iter):
-            dir = random.randint(0,3)
+            dir = random.randint(0, 3)
             if dir == 0:
                 self.__x += 1
             elif dir == 1:
@@ -86,5 +86,6 @@ class Random:
 
 def main():
     Random()
+
 
 main()

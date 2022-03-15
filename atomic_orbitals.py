@@ -25,7 +25,7 @@ import numpy as np
 # Must be imported after scipy to prevent errors
 import pyqtgraph as pg
 import pyqtgraph.opengl as gl
-from pyqtgraph.Qt import QtGui
+from pyqtgraph.Qt import QtWidgets
 
 # import matplotlib.pyplot as plt
 
@@ -33,7 +33,7 @@ from pyqtgraph.Qt import QtGui
 class Main:
     def __init__(self):
         # Prepare Qt
-        app = QtGui.QApplication([])
+        app = QtWidgets.QApplication([])
 
         # Prepare window and OpenGL environment
         self.__widget = gl.GLViewWidget()
@@ -52,15 +52,15 @@ class Main:
         self.__Z = 1
 
         self.__rdist = 50
-        self.__data = np.zeros((self.__rdist, self.__rdist, self.__rdist), dtype=np.complex)
+        self.__data = np.zeros((self.__rdist, self.__rdist, self.__rdist), dtype=complex)
 
         # Computation parameters
         self.__zoom = 1
 
-        widget2 = QtGui.QWidget()
+        widget2 = QtWidgets.QWidget()
         widget2.setWindowTitle("Quantum by AgenttiX")
 
-        layout = QtGui.QGridLayout()
+        layout = QtWidgets.QGridLayout()
         widget2.setLayout(layout)
 
         self.radial = None
@@ -70,7 +70,7 @@ class Main:
         labels = ["n", "l", "m", "Z"]
 
         for i, text in enumerate(labels):
-            label = QtGui.QLabel()
+            label = QtWidgets.QLabel()
             label.setText(text)
             layout.addWidget(label, i, 0)
 
@@ -87,12 +87,12 @@ class Main:
         self.__input_Z = pg.SpinBox(value=self.__Z, int=True, dec=True, minStep=1, step=1)
         layout.addWidget(self.__input_Z, 3, 1)
 
-        self.__updateButton = QtGui.QPushButton("Update")
+        self.__updateButton = QtWidgets.QPushButton("Update")
         layout.addWidget(self.__updateButton, 4, 1)
 
         self.__updateButton.clicked.connect(self.update)
 
-        self.__infoLabel = QtGui.QLabel()
+        self.__infoLabel = QtWidgets.QLabel()
         layout.addWidget(self.__infoLabel, 5, 1)
 
         widget2.show()
@@ -102,7 +102,7 @@ class Main:
         self.update()
 
         # Main loop
-        app.exec_()
+        app.exec()
 
     def update(self):
         self.__n = self.__input_n.value()
@@ -128,7 +128,7 @@ class Main:
                     self.__data[x, y, z] = self.psi_cartesian(self.__zoom*(x - offset), self.__zoom*(y - offset), self.__zoom*(z - offset))
 
         self.__abs = np.abs(self.__data)
-        self.__abs.astype(np.float)
+        self.__abs.astype(float)
         self.__abs = np.power(self.__abs, 2)
 
         # print(abs)
