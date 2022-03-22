@@ -1,21 +1,6 @@
 # A simple 2D random walker
 # Originally created for Tampere University of Technology course FYS-1350 Nanophysics
-# Copyright Mika "AgenttiX" Mäki, 2016
-
-
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
+# Created by Mika "AgenttiX" Mäki, 2016
 
 import numpy as np
 import random

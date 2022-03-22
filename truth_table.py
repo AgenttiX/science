@@ -1,6 +1,5 @@
 # A simple truth value table calculator
-# Mika "AgenttiX" Mäki, 2016
-# Work in progress
+# Created by Mika "AgenttiX" Mäki, 2016
 
 import numpy as np
 
